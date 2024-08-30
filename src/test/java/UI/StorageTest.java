@@ -1,5 +1,6 @@
-package Storage;
+package UI;
 
+import Storage.Storage;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.AfterEach;
@@ -48,8 +49,8 @@ public class StorageTest {
     @Test
     public void testSaveAndLoadDataWithTasks() {
         new ToDo("Task 1");
-        new Deadline("Task 2", "2024-01-01T12:00");
-        new Event("Task 3", "2024-01-01T12:00", "2024-01-01T13:00");
+        new Deadline("Task 2", "01-01-2024 1200");
+        new Event("Task 3", "01-01-2024 1200", "01-01-2024 1300");
 
         storage.saveData();
         TaskList.mainTaskList.clearTasks();
