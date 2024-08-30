@@ -11,24 +11,43 @@ import java.io.IOException;
 import java.util.Scanner;
 import java.io.FileNotFoundException;
 
+/**
+ * The Storage class handles loading and saving data to a specified file path.
+ * It supports operations to clear, save, and load data.
+ */
 public class Storage {
     private String filePath;
 
-    // Constructor to initialize filePath
+    /**
+     * Constructs a Storage object with the specified file path.
+     *
+     * @param filePath The path to the file used for storing data.
+     */
     public Storage(String filePath) {
         this.filePath = filePath;
     }
 
-    // Method to set the file path
+    /**
+     * Sets the file path to a new value.
+     *
+     * @param filePath The new file path.
+     */
     public void setFilePath(String filePath) {
         this.filePath = filePath;
     }
 
-    // Method to get the current file path
+    /**
+     * Gets the current file path.
+     *
+     * @return The current file path.
+     */
     public String getFilePath() {
         return filePath;
     }
 
+    /**
+     * Clears the contents of the save file.
+     */
     public void clearSave() {
         try (FileWriter saveFile = new FileWriter(filePath)) {
             saveFile.write("");
@@ -38,13 +57,15 @@ public class Storage {
         }
     }
 
-    // Method to save data to the file
+    /**
+     * Saves the current tasks to the save file.
+     */
     public void saveData() {
         try (FileWriter saveFile = new FileWriter(filePath)) {
-            int numTask = TaskList.mainTaskList.getNumTasks();
-            for (int i = 0; i < numTask; i++) {
+            int numTasks = TaskList.mainTaskList.getNumTasks();
+            for (int i = 0; i < numTasks; i++) {
                 saveFile.write(TaskList.mainTaskList.getTaskFileFormat(i));
-                if (i != numTask - 1) {
+                if (i != numTasks - 1) {
                     saveFile.write("\n");
                 }
             }
@@ -54,7 +75,9 @@ public class Storage {
         }
     }
 
-    // Method to load data from the file
+    /**
+     * Loads tasks from the save file.
+     */
     public void loadData() {
         try (Scanner reader = new Scanner(new File(filePath))) {
             while (reader.hasNextLine()) {
@@ -62,9 +85,9 @@ public class Storage {
                 String taskType = data.substring(0, 1);
                 String[] taskDetails = data.split(" \\| ");
                 switch (taskType) {
-                    case "E" -> Event.load(taskDetails);
-                    case "D" -> Deadline.load(taskDetails);
-                    case "T" -> ToDo.load(taskDetails);
+                case "E" -> Event.load(taskDetails);
+                case "D" -> Deadline.load(taskDetails);
+                case "T" -> ToDo.load(taskDetails);
                 }
             }
         } catch (FileNotFoundException e) {
