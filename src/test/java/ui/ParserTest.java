@@ -1,10 +1,10 @@
-package ui;
+package UI;
 
 import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import task.TaskList;
-import task.ToDo;
+import Task.TaskList;
+import Task.ToDo;
 
 /**
  * Test class for Parser's handleDelete method to ensure it functions correctly
