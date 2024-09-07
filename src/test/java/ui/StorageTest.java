@@ -1,13 +1,13 @@
-package UI;
+package ui;
 
-import Storage.Storage;
+import storage.Storage;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.AfterEach;
-import Task.TaskList;
-import Task.ToDo;
-import Task.Deadline;
-import Task.Event;
+import task.TaskList;
+import task.ToDo;
+import task.Deadline;
+import task.Event;
 
 import java.io.File;
 import java.io.IOException;

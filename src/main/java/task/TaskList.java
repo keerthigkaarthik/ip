@@ -1,4 +1,4 @@
-package Task;
+package task;
 
 import java.util.ArrayList;
 
@@ -36,14 +36,16 @@ public class TaskList {
     /**
      * Prints all tasks in the list with their indices.
      */
-    public void printList() {
+    public String printList() {
+        String msg = "";
         int index = 1;
         System.out.println();
         for (Task task : this.tasks) {
-            System.out.printf("     %d. %s\n", index, task);
+            msg += String.format("     %d. %s\n", index, task);
             index++;
         }
-        System.out.println();
+        msg += "\n";
+        return msg;
     }
 
     /**

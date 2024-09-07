@@ -1,9 +1,9 @@
-package Storage;
+package storage;
 
-import Task.Deadline;
-import Task.Event;
-import Task.TaskList;
-import Task.ToDo;
+import task.Deadline;
+import task.Event;
+import task.TaskList;
+import task.ToDo;
 
 import java.io.File;
 import java.io.FileWriter;
